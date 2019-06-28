@@ -12,5 +12,5 @@ Each sheet cotains an assignment.\
 Sheet 6 contains a simulation of Particle Filter applied for the localization of a mobile robot.
 
 <p align="center">
-	<img src="https://github.com/vinits5/probabilistic_robotics/blob/master/gif/particle_filer_localization.gif" title="Implementation of Particle Filter">
+	<img src="https://github.com/vinits5/probabilistic_robotics/blob/master/gif/particle_filter_localization.gif" title="Implementation of Particle Filter">
 </p>
