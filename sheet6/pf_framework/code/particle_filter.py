@@ -146,7 +146,7 @@ def eval_sensor_model(sensor_data, particles, landmarks):
 	normalizer = sum(weights)
 	weights = weights / normalizer
 
-	return weights
+	return np.array(weights)
 
 def resample_particles(particles, weights):
 	# Returns a new set of particles obtained by performing
@@ -168,6 +168,22 @@ def resample_particles(particles, weights):
 		new_particles.append(particles[i])
 		u = u + (1.0/n)
 
+	return new_particles
+
+# -------------------------------------------------------------------------------------------
+# Implementation of Stochastic Universal Sampling using np.random.choice.
+# Written by Vinit
+# -------------------------------------------------------------------------------------------
+def resample_particles_v1(particles, weights):
+	new_particles = []
+	
+	# Normalize Weights
+	weights = weights / (np.sum(weights)*1.0)
+	for idx in range(len(particles)):
+		# Select a particle based on their weights considering it as probability distribution.
+		chosen_id = np.random.choice(len(particles), p=weights)
+		# Append it to new set.
+		new_particles.append(particles[chosen_id])
 	return new_particles
 
 def main():
